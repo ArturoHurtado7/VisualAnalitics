@@ -1,0 +1,21 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A simple bar chart with embedded data.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/vega/vega-datasets/next/data/movies.json"
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "Title",
+      "type": "nominal",
+      "axis": {
+        "labelAngle": 45
+      }
+    },
+    "y": {
+      "field": "Production Budget",
+      "type": "quantitative"
+    }
+  }
+}

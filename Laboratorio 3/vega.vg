@@ -1,0 +1,30 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A simple bar chart with embedded data.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/ArturoHurtado7/VisualAnalitics/master/Laboratorio%203/movies.json"
+  },
+  "mark": "rect",
+  "encoding": {
+    "x": {
+      "field": "Release Date",
+      "timeUnit": "week",
+      "type": "ordinal",
+      "title": "Week"
+    },
+    "y": {
+      "field": "Release Date",
+      "timeUnit": "month",
+      "type": "ordinal",
+      "title": "Month"
+    },
+    "color": {
+      "field": "Production Budget",
+      "aggregate": "sum",
+      "type": "quantitative",
+      "legend": {
+        "title": "Production Budget"
+      }
+    }
+  }
+}
