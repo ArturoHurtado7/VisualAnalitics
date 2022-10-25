@@ -1,0 +1,9 @@
+# blank project
+npx create-react-app d3-data-binding
+cd d3-data-binding
+npm start
+
+# typescript project
+npx create-react-app d3-data-binding --template typescript
+cd d3-data-binding
+npm start
