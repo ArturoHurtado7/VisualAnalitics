@@ -7,17 +7,28 @@
   "mark": "bar",
   "encoding": {
     "x": {
-      "field": "genre",
+      "field": "release",
       "type": "nominal",
+      "timeUnit": "year",
       "axis": {
-        "title": "Genre"
+        "title": "Year"
       }
     },
     "y": {
       "aggregate": "count",
       "type": "quantitative",
       "axis": {
-        "title": "Number of movies"
+        "title": "Number of Movies"
+      }
+    },
+    "color": {
+      "field": "genre",
+      "type": "nominal",
+      "scale": {
+        "scheme": "set2"
+      },
+      "legend": {
+        "title": "Genre"
       }
     }
   }
