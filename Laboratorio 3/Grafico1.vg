@@ -1,0 +1,58 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Stock prices of 5 Tech Companies over Time.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/vega/vega-datasets/next/data/movies.json"
+  },
+  "width": 700,
+  "height": 500,
+  "transform": [{"filter": "datum[\"Major Genre\"] != \"null\""}],
+   "encoding": {
+    "x": {
+      "timeUnit": "year",
+      "field": "Release Date",
+      "axis": {"labelAngle": 90}
+    }
+  },
+  "layer": [
+    {
+      "params": [
+        {
+          "name": "Genre",
+          "select": {"type": "point", "fields": ["Major Genre"]},
+          "bind": "legend"
+        }
+      ],
+      "mark": "circle",
+      "encoding": {
+        "y": {
+          "field": "Rotten Tomatoes Rating",
+          "aggregate": "average",
+          "type": "quantitative"
+        },
+        "color": {"field": "Major Genre", "type": "nominal"},
+        "opacity": {"condition": {"param": "Genre", "value": 1}, "value": 0.1}
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "Genre2",
+          "select": {"type": "point", "fields": ["Major Genre"]},
+          "bind": "legend"
+        }
+      ],
+      "mark":"point",
+      "encoding": {
+        "y": {
+          "field": "IMDB Rating",
+          "aggregate": "average",
+          "type": "quantitative"
+        },
+        "color": {"field": "Major Genre", "scale": {"scheme": "category20b"}},
+        "opacity": {"condition": {"param": "Genre2", "value": 1}, "value": 0.1}
+      }
+    }
+  ],
+  "resolve": {"scale": {"y": "independent"}}
+}

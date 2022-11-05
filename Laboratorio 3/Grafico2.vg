@@ -1,0 +1,38 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/vega/vega-datasets/next/data/movies.json"
+  },
+  "vconcat": [
+    {
+      "mark": "line",
+      "width": 700,
+      "height": 250,
+      "encoding": {
+        "x": {"bin": true, "field": "IMDB Rating", "type": "quantitative"},
+        "y": {
+          "aggregate": "mean",
+          "field": "US Gross",
+          "type": "quantitative",
+          "title": "Mean of US Gross"
+        },
+        "color": {"field": "Creative Type", "type": "nominal"}
+      }
+    },
+    {
+      "mark": "line",
+      "width": 700,
+      "height": 250,
+      "encoding": {
+        "x": {"bin": true, "field": "IMDB Rating", "type": "quantitative"},
+        "y": {
+          "aggregate": "mean",
+          "field": "Worldwide Gross",
+          "type": "quantitative",
+          "title": "Mean of Worldwide Gross"
+        },
+        "color": {"field": "Creative Type", "type": "nominal"}
+      }
+    }
+  ]
+}

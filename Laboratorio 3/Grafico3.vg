@@ -1,0 +1,24 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A simple bar chart with embedded data.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/ArturoHurtado7/VisualAnalitics/master/Laboratorio%203/movies_filter.json"
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "genre",
+      "type": "nominal",
+      "axis": {
+        "title": "Genre"
+      }
+    },
+    "y": {
+      "aggregate": "count",
+      "type": "quantitative",
+      "axis": {
+        "title": "Number of movies"
+      }
+    }
+  }
+}
