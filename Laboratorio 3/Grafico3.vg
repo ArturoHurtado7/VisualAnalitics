@@ -6,23 +6,14 @@
   },
   "transform": [
     {
+      "filter": "datum.genre != 'Unknown'"
+    },
+    {
       "calculate": "floor(year(datum.release) / 10) * 10",
       "as": "ReleaseDecade"
-    },
-    {
-      "window": [{
-        "op": "sum",
-        "field": "genre",
-        "as": "TotalGenre"
-      }],
-    "frame": [null, null]
-    },
-    {
-      "calculate": "datum.genre/datum.TotalGenre * 100",
-      "as": "PercentOfGenre"
     }
   ],
-  "mark": "bar",
+  "mark": "area",
   "encoding": {
     "x": {
       "field": "ReleaseDecade",
@@ -33,7 +24,8 @@
     },
     "y": {
       "aggregate": "count",
-      "type": "nominal",
+      "type": "quantitative",
+      "stack": "normalize",
       "axis": {
         "title": "Number of Movies"
       }
@@ -42,7 +34,7 @@
       "field": "genre",
       "type": "nominal",
       "scale": {
-        "scheme": "set2"
+        "scheme": "set3"
       },
       "legend": {
         "title": "Genre"
