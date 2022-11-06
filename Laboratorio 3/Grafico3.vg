@@ -1,5 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Movie Genre Evolution by Decade",
   "description": "Stacked Area Gender popularity by decade.",
   "width": 350,
   "height": 350,
@@ -12,7 +13,7 @@
     },
     {
       "calculate": "floor(year(datum.release) / 10) * 10",
-      "as": "ReleaseDecade"
+      "as": "Release Decade"
     }
   ],
   "mark": {
@@ -31,10 +32,10 @@
   ],
   "encoding": {
     "x": {
-      "field": "ReleaseDecade",
+      "field": "Release Decade",
       "type": "nominal",
       "axis": {
-        "title": "decade",
+        "title": "Movie Release Decade",
         "labelAngle": 45
       }
     },
@@ -43,7 +44,7 @@
       "type": "quantitative",
       "stack": "normalize",
       "axis": {
-        "title": "Percentage of movies Genre"
+        "title": "Movie Genre Percentage"
       }
     },
     "color": {
