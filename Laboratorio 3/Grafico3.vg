@@ -4,19 +4,36 @@
   "data": {
     "url": "https://raw.githubusercontent.com/ArturoHurtado7/VisualAnalitics/master/Laboratorio%203/movies_filter.json"
   },
+  "transform": [
+    {
+      "calculate": "floor(year(datum.release) / 10) * 10",
+      "as": "ReleaseDecade"
+    },
+    {
+      "window": [{
+        "op": "sum",
+        "field": "genre",
+        "as": "TotalGenre"
+      }],
+    "frame": [null, null]
+    },
+    {
+      "calculate": "datum.genre/datum.TotalGenre * 100",
+      "as": "PercentOfGenre"
+    }
+  ],
   "mark": "bar",
   "encoding": {
     "x": {
-      "field": "release",
+      "field": "ReleaseDecade",
       "type": "nominal",
-      "timeUnit": "year",
       "axis": {
-        "title": "Year"
+        "title": "decade"
       }
     },
     "y": {
       "aggregate": "count",
-      "type": "quantitative",
+      "type": "nominal",
       "axis": {
         "title": "Number of Movies"
       }
