@@ -5,11 +5,11 @@
   "data": {
     "url": "https://raw.githubusercontent.com/vega/vega-datasets/next/data/movies.json"
   },
-  "width": 450,
-  "height": 350,
+  "width": 500,
+  "height": 400,
   "transform": [
     {
-      "filter": "datum[\"Major Genre\"] != \"null\""
+      "filter": "datum['Major Genre'] != null"
     },
     {
       "filter": {
@@ -65,7 +65,9 @@
         "color": {
           "field": "Major Genre", 
           "type": "nominal",
-          "scale": {"scheme": "category20b"},
+          "scale": {
+            "scheme": "category20c"
+          },
           "condition": {
             "param": "hide_Rotten",
             "value": "Rotten Tomatoes Rating"
@@ -88,14 +90,17 @@
           },
           {
             "field": "Rotten Tomatoes Rating", 
+            "title": "Rotten Tomatoes",
             "type": "quantitative"
           },
           {
             "field": "IMDB Rating", 
+            "title": "IMDB",
             "type": "quantitative"
           },
           {
             "field": "Release Date",
+            "title": "Release Year",
             "type": "nominal",
             "timeUnit": "year"
           }
@@ -126,7 +131,7 @@
           "field": "Major Genre", 
           "type": "nominal",
           "scale": {
-            "scheme": "category20b"
+            "scheme": "inferno"
           },
           "condition": {
             "param": "hide_IMBD",
@@ -151,14 +156,17 @@
           },
           {
             "field": "Rotten Tomatoes Rating", 
+            "title": "Rotten Tomatoes",
             "type": "quantitative"
           },
           {
             "field": "IMDB Rating", 
+            "title": "IMDB",
             "type": "quantitative"
           },
           {
             "field": "Release Date",
+            "title": "Release Year",
             "type": "nominal",
             "timeUnit": "year"
           }

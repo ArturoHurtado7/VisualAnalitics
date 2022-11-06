@@ -50,10 +50,10 @@
       "field": "genre",
       "type": "nominal",
       "scale": {
-        "scheme": "set3"
+        "scheme": "category20b"
       },
       "legend": {
-        "title": "Genre"
+        "title": "Movie Genre"
       }
     },
     "opacity": {

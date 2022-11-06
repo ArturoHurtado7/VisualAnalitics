@@ -11,7 +11,7 @@
         "size": 2,
         "point": true
       },
-      "width": 450,
+      "width": 500,
       "height": 210,
       "params": [
         {
@@ -39,6 +39,10 @@
         },
         "tooltip": [
           {
+            "field": "Creative Type",
+            "type": "nominal"
+          },
+          {
             "title": "IMDB Rating",
             "field": "IMDB Rating",
             "bin": true,
@@ -50,10 +54,6 @@
             "type": "quantitative",
             "title": "US Mean Gross",
             "format": "$,.0f"
-          },
-          {
-            "field": "Creative Type",
-            "type": "nominal"
           }
         ]
       }
@@ -65,7 +65,7 @@
         "size": 2,
         "point": true
       },
-      "width": 450,
+      "width": 500,
       "height": 210,
       "params": [
         {
