@@ -1,0 +1,58 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Movie Success",
+  "description": "Movie Success measure by profit",
+  "width": 350,
+  "height": 350,
+  "data": {
+    "url": "https://raw.githubusercontent.com/ArturoHurtado7/VisualAnalitics/master/Laboratorio%203/movies_filter.json"
+  },
+  "params": [
+    {
+      "name": "grid",
+      "select": "interval",
+      "bind": "scales"
+    },
+    {
+      "name": "select", 
+      "select": "point"
+    }
+  ],
+  "mark": {
+    "type": "circle", 
+    "cursor": "pointer",
+    "tooltip": {
+      "content": "data"
+    }
+  },
+  "encoding": {
+    "x": {
+      "field": "profit",
+      "type": "quantitative",
+      "axis": {
+        "title": "Profit"
+      }
+    },
+    "y": {
+      "field": "budget",
+      "type": "quantitative",
+      "axis": {
+        "title": "Budget"
+      }
+    },
+    "fillOpacity": {
+      "condition": {
+        "param": "select", 
+        "value": 1
+      },
+      "value": 0.3
+    },
+    "size": {
+      "field": "income", 
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "genre"
+    }
+  }
+}
