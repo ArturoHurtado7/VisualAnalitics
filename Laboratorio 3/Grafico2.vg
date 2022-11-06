@@ -5,33 +5,111 @@
   },
   "vconcat": [
     {
-      "mark": "line",
-      "width": 700,
-      "height": 250,
+      "title": "IMDB Rating by US Gross",
+      "mark": {
+        "type": "line",
+        "size": 2,
+        "point": true
+      },
+      "width": 450,
+      "height": 210,
+      "params": [
+        {
+          "name": "grid1",
+          "select": "interval",
+          "bind": "scales"
+        }
+      ],
       "encoding": {
-        "x": {"bin": true, "field": "IMDB Rating", "type": "quantitative"},
+        "x": {
+          "title": "IMDB Rating",
+          "bin": true, 
+          "field": "IMDB Rating", 
+          "type": "quantitative"
+        },
         "y": {
           "aggregate": "mean",
           "field": "US Gross",
           "type": "quantitative",
-          "title": "Mean of US Gross"
+          "title": "US Mean Gross"
         },
-        "color": {"field": "Creative Type", "type": "nominal"}
+        "color": {
+          "field": "Creative Type", 
+          "type": "nominal"
+        },
+        "tooltip": [
+          {
+            "title": "IMDB Rating",
+            "field": "IMDB Rating",
+            "bin": true,
+            "type": "nominal"
+          },
+          {
+            "aggregate": "mean",
+            "field": "US Gross",
+            "type": "quantitative",
+            "title": "US Mean Gross",
+            "format": "$,.0f"
+          },
+          {
+            "field": "Creative Type",
+            "type": "nominal"
+          }
+        ]
       }
     },
     {
-      "mark": "line",
-      "width": 700,
-      "height": 250,
+      "title": "IMDB Rating by Worldwide Gross",
+      "mark": {
+        "type": "line",
+        "size": 2,
+        "point": true
+      },
+      "width": 450,
+      "height": 210,
+      "params": [
+        {
+          "name": "grid2",
+          "select": "interval",
+          "bind": "scales"
+        }
+      ],
       "encoding": {
-        "x": {"bin": true, "field": "IMDB Rating", "type": "quantitative"},
+        "x": {
+          "title": "IMDB Rating",
+          "bin": true, 
+          "field": "IMDB Rating", 
+          "type": "quantitative"
+        },
         "y": {
           "aggregate": "mean",
           "field": "Worldwide Gross",
           "type": "quantitative",
-          "title": "Mean of Worldwide Gross"
+          "title": "Worldwide Mean Gross"
         },
-        "color": {"field": "Creative Type", "type": "nominal"}
+        "color": {
+          "field": "Creative Type", 
+          "type": "nominal"
+        },
+        "tooltip": [
+          {
+            "field": "Creative Type",
+            "type": "nominal"
+          },
+          {
+            "title": "IMDB Rating",
+            "field": "IMDB Rating",
+            "bin": true,
+            "type": "nominal"
+          },
+          {
+            "aggregate": "mean",
+            "field": "Worldwide Gross",
+            "type": "quantitative",
+            "title": "Worldwide Mean Gross",
+            "format": "$,.0f"
+          }
+        ]
       }
     }
   ]
