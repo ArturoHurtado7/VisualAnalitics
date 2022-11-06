@@ -1,6 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "A simple bar chart with embedded data.",
+  "description": "Stacked Area Gender popularity by decade.",
+  "width": 350,
+  "height": 350,
   "data": {
     "url": "https://raw.githubusercontent.com/ArturoHurtado7/VisualAnalitics/master/Laboratorio%203/movies_filter.json"
   },
@@ -13,13 +15,27 @@
       "as": "ReleaseDecade"
     }
   ],
-  "mark": "area",
+  "mark": {
+    "type": "area", 
+    "tooltip": true
+  },
+  "params": [
+    {
+      "name": "SelectedGenre",
+      "select": {
+        "type": "point", 
+        "fields": ["genre"]
+      },
+      "bind": "legend"
+    }
+  ],
   "encoding": {
     "x": {
       "field": "ReleaseDecade",
       "type": "nominal",
       "axis": {
-        "title": "decade"
+        "title": "decade",
+        "labelAngle": 45
       }
     },
     "y": {
@@ -27,7 +43,7 @@
       "type": "quantitative",
       "stack": "normalize",
       "axis": {
-        "title": "Number of Movies"
+        "title": "Percentage of movies Genre"
       }
     },
     "color": {
@@ -39,6 +55,13 @@
       "legend": {
         "title": "Genre"
       }
+    },
+    "opacity": {
+      "condition": {
+        "param": "SelectedGenre", 
+        "value": 1
+      }, 
+      "value": 0.5
     }
   }
 }
