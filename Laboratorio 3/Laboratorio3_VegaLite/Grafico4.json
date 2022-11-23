@@ -1,0 +1,96 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Movie Success",
+  "description": "Movie Success measure by profit",
+  "width": 500,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/ArturoHurtado7/VisualAnalitics/master/Laboratorio%203/movies_filter.json"
+  },
+  "params": [
+    {
+      "name": "grid",
+      "select": "interval",
+      "bind": "scales"
+    },
+    {
+      "name": "SelectedGenre",
+      "select": {
+        "type": "point", 
+        "fields": ["genre"]
+      },
+      "bind": "legend"
+    }
+  ],
+  "mark": {
+    "type": "circle", 
+    "cursor": "pointer"
+  },
+  "encoding": {
+    "x": {
+      "field": "profit",
+      "type": "quantitative",
+      "axis": {
+        "title": "Profit",
+        "labelAngle": 45
+      }
+    },
+    "y": {
+      "field": "budget",
+      "type": "quantitative",
+      "axis": {
+        "title": "Budget"
+      }
+    },
+    "opacity": {
+      "condition": {
+        "param": "SelectedGenre", 
+        "value": 1
+      }, 
+      "value": 0.03
+    },
+    "size": {
+      "field": "income", 
+      "type": "quantitative",
+      "scale": {
+        "range": [0, 600]
+      }
+    },
+    "color": {
+      "field": "genre",
+      "type": "nominal",
+      "scale": {
+        "scheme": "tableau10"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "title", 
+        "type": "nominal"
+      },
+      {
+        "field": "release", 
+        "type": "temporal"
+      },
+      {
+        "field": "genre", 
+        "type": "nominal"
+      },
+      {
+        "field": "budget", 
+        "type": "quantitative",
+        "format": "$,.0f"
+      },
+      {
+        "field": "income", 
+        "type": "quantitative",
+        "format": "$,.0f"
+      },
+      {
+        "field": "profit", 
+        "type": "quantitative",
+        "format": "$,.0f"
+      }
+    ]
+  }
+}
