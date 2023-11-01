@@ -1,0 +1,84 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Movie genre popularity over decades",
+  "description": "Stacked Area Movie Gender popularity by decade.",
+  "width": 450,
+  "height": 350,
+  "data": {
+    "url": "https://raw.githubusercontent.com/ArturoHurtado7/VisualAnalitics/master/Laboratorio%203/movies_filter.json"
+  },
+  "transform": [
+    {
+      "filter": "datum.genre != 'Unknown'"
+    },
+    {
+      "calculate": "floor(year(datum.release) / 10) * 10",
+      "as": "Release Decade"
+    }
+  ],
+  "mark": "area",
+  "params": [
+    {
+      "name": "SelectedGenre",
+      "select": {
+        "type": "point", 
+        "fields": ["genre"]
+      },
+      "bind": "legend"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Release Decade",
+      "type": "nominal",
+      "axis": {
+        "title": "Release Decade",
+        "labelAngle": 45
+      }
+    },
+    "y": {
+      "aggregate": "count",
+      "type": "quantitative",
+      "stack": "normalize",
+      "title": "Percentage of movies",
+      "axis": {
+        "format": ".0%",
+        "title": "Percentage of movies"
+      }
+    },
+    "color": {
+      "field": "genre",
+      "type": "nominal",
+      "scale": {
+        "scheme": "category20c"
+      },
+      "legend": {
+        "title": "Movie Genre"
+      }
+    },
+    "opacity": {
+      "condition": {
+        "param": "SelectedGenre", 
+        "value": 1
+      }, 
+      "value": 0.2
+    },
+    "tooltip": [
+      {
+        "field": "genre",
+        "type": "nominal",
+        "title": "Genre"
+      },
+      {
+        "field": "Release Decade",
+        "type": "nominal",
+        "title": "Release Decade"
+      },
+      {
+        "aggregate": "count",
+        "type": "quantitative",
+        "title": "Quantity"
+      }
+    ]
+  }
+}

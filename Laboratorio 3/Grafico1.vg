@@ -1,0 +1,180 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Criticts & Audience Ratings",
+  "description": "A scatterplot showing the relationship between a movie's critic rating and its audience rating.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/vega/vega-datasets/next/data/movies.json"
+  },
+  "width": 500,
+  "height": 400,
+  "transform": [
+    {
+      "filter": "datum['Major Genre'] != null"
+    },
+    {
+      "filter": {
+        "field": "Release Date", 
+        "timeUnit": "year", 
+        "range": [1900, 2012]
+      }
+    }
+  ],
+  "encoding": {
+    "x": {
+      "title": "Release Year",
+      "timeUnit": "year",
+      "field": "Release Date",
+      "axis": {
+        "labelAngle": 45
+      }
+    }
+  },
+  "params": [
+    {
+      "name": "hide_Rotten",
+      "value": false,
+      "bind": {"input": "checkbox"}
+    },
+    {
+      "name": "hide_IMBD",
+      "value": false,
+      "bind": {"input": "checkbox"}
+    }
+  ],
+  "layer": [
+    {
+      "params": [
+        {
+          "name": "grid1",
+          "select": "interval",
+          "bind": "scales"
+        },
+        {
+          "name": "Genre",
+          "select": {"type": "point", "fields": ["Major Genre"]},
+          "bind": "legend"
+        }
+      ],
+      "mark": "circle",
+      "encoding": {
+        "y": {
+          "field": "Rotten Tomatoes Rating",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "Major Genre", 
+          "type": "nominal",
+          "scale": {
+            "scheme": "category20c"
+          },
+          "condition": {
+            "param": "hide_Rotten",
+            "value": "Rotten Tomatoes Rating"
+          }
+        },
+        "opacity": {
+          "condition": {
+            "param": "Genre", "value": 1
+          }, 
+          "value": 0.01
+        },
+        "tooltip": [
+          {
+            "field": "Title", 
+            "type": "nominal"
+          },
+          {
+            "field": "Major Genre", 
+            "type": "nominal"
+          },
+          {
+            "field": "Rotten Tomatoes Rating", 
+            "title": "Rotten Tomatoes",
+            "type": "quantitative"
+          },
+          {
+            "field": "IMDB Rating", 
+            "title": "IMDB",
+            "type": "quantitative"
+          },
+          {
+            "field": "Release Date",
+            "title": "Release Year",
+            "type": "nominal",
+            "timeUnit": "year"
+          }
+        ]
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "grid2",
+          "select": "interval",
+          "bind": "scales"
+        },
+        {
+          "name": "Genre2",
+          "select": {"type": "point", "fields": ["Major Genre"]},
+          "bind": "legend"
+        }
+      ],
+      "mark":"point",
+      "encoding": {
+        "y": {
+          "field": "IMDB Rating",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "Major Genre", 
+          "type": "nominal",
+          "scale": {
+            "scheme": "inferno"
+          },
+          "condition": {
+            "param": "hide_IMBD",
+            "value": "IMDB Rating"
+          }
+        },
+        "opacity": {
+          "condition": {
+            "param": "Genre2", 
+            "value": 1
+          }, 
+          "value": 0.01
+        },
+        "tooltip": [
+          {
+            "field": "Title", 
+            "type": "nominal"
+          },
+          {
+            "field": "Major Genre", 
+            "type": "nominal"
+          },
+          {
+            "field": "Rotten Tomatoes Rating", 
+            "title": "Rotten Tomatoes",
+            "type": "quantitative"
+          },
+          {
+            "field": "IMDB Rating", 
+            "title": "IMDB",
+            "type": "quantitative"
+          },
+          {
+            "field": "Release Date",
+            "title": "Release Year",
+            "type": "nominal",
+            "timeUnit": "year"
+          }
+        ]
+      }
+    }
+  ],
+  "resolve": {
+    "scale": {
+      "y": "independent"
+    }
+  }
+}
