@@ -735,8 +735,13 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='1000' minheight='1000' sizing-mode='vscroll' />
           <zones>
+<<<<<<< HEAD
             <zone h='100000' id='70' type-v2='layout-basic' w='100000' x='0' y='0'>
               <zone h='98000' id='69' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+=======
+            <zone h='100000' id='64' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='63' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+>>>>>>> cbd0c1e817fcc9f6e1ce1c94e7d2a07cca1b3a3e
                 <zone forceUpdate='true' h='5250' id='49' type-v2='text' w='44800' x='28000' y='3000'>
                   <formatted-text>
                     <run fontcolor='#4e79a7' fontsize='16'>Analisis temporal del gasto medico en EEUU</run>
@@ -811,8 +816,13 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='750' minheight='750' sizing-mode='vscroll' />
           <zones>
+<<<<<<< HEAD
             <zone h='100000' id='49' type-v2='layout-basic' w='100000' x='0' y='0'>
               <zone h='98000' id='48' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+=======
+            <zone h='100000' id='45' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='44' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+>>>>>>> cbd0c1e817fcc9f6e1ce1c94e7d2a07cca1b3a3e
                 <zone forceUpdate='true' h='5250' id='40' type-v2='text' w='47000' x='27300' y='2375'>
                   <formatted-text>
                     <run fontalignment='1' fontcolor='#4e79a7' fontsize='16'>Gasto publico en Salud por Tipo de servicio</run>
@@ -1032,7 +1042,11 @@
       </viewpoint>
       <simple-id uuid='{BFB21CB3-9C82-4942-917E-94C6513C9EF1}' />
     </window>
+<<<<<<< HEAD
     <window class='worksheet' maximized='true' name='Hoja 5'>
+=======
+    <window class='worksheet' name='Hoja 5'>
+>>>>>>> cbd0c1e817fcc9f6e1ce1c94e7d2a07cca1b3a3e
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1087,13 +1101,21 @@
           <zoom type='fit-width' />
         </viewpoint>
       </viewpoints>
+<<<<<<< HEAD
       <active id='-1' />
+=======
+      <active id='45' />
+>>>>>>> cbd0c1e817fcc9f6e1ce1c94e7d2a07cca1b3a3e
       <device-preview visible='true'>
         <device is-portrait='false' type='Desktop' />
       </device-preview>
       <simple-id uuid='{0B2731EE-0628-4972-9A92-1F3A26663DC0}' />
     </window>
+<<<<<<< HEAD
     <window class='dashboard' name='Dashboard 2'>
+=======
+    <window class='dashboard' maximized='true' name='Dashboard 2'>
+>>>>>>> cbd0c1e817fcc9f6e1ce1c94e7d2a07cca1b3a3e
       <viewpoints>
         <viewpoint name='Hoja 3'>
           <current-page>
